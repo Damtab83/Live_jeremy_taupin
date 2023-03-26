@@ -10,14 +10,19 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
+import speciale from './img/pizza-speciale.jpg'
+import margherita from './img/pizza-margherita.jpg'
+import calzone from './img/pizza-calzone.jpg'
 // index.css
 // App.css
 // Shop.css
 const fakeDate = [
-  {name : 'marguarita', price : 25},
+  {name : 'marguarita', price : 25, img: margherita},
   {name : '4 saisons', price: 32},
-  {name : 'marguarita sans prix'},
-  {name : '4 saisons', price: 58}
+  {name : 'Royal sans prix'},
+  {name : 'La spécial Luigi', price: 50, img: speciale},
+  {name : 'Calzone (surgelé Lidl)', price: 3000, img: calzone},
+  {name : 'Tartiflette', price: 58}
 ]
 let point = 0
 
@@ -29,26 +34,12 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and Bonjour save to reload.
-            <Routes>
-              <Route path='/Delivery' element={<FormDelivery />} />
-              <Route path='/List' element={<ListArticles articles={fakeDate}/>} />
-              <Route path='/Test' element={<TestComponent functionClick={addSomePoint} points={point} />}/>
-              <Route path='/Pomme' element={<h1>Quel idée des pommes sur une pizza ?!</h1>}/>
-            </Routes> 
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Routes>
+          <Route path='/Delivery' element={<FormDelivery />} />
+          <Route path='/List' element={<ListArticles articles={fakeDate}/>} />
+          <Route path='/Test' element={<TestComponent functionClick={addSomePoint} points={point} />}/>
+          <Route path='/Pomme' element={<h1>Quel idée des pommes sur une pizza ?!</h1>}/>
+        </Routes>
       </div>
     </Router>
   );

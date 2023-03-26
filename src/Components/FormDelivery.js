@@ -35,13 +35,6 @@ const FormDelivery = (props) => {
     // Create : const [city, setCity] = useState()
     // Read : city
     // Update : setCity
-    useEffect(()=> {
-        return !StateTypes.number(zipCode) ?null :setError('Mauvais Code Postal')
-    }, [zipCode])
-    useEffect(()=>{
-        return !StateTypes.string(city) ?null :setError('Ville incorrect')
-    }, [city])
-
     const handleZipChange = (e)=> {
         if (!isNaN(e.target.value)){
             if (e.target.value.length === 5){
